@@ -13,10 +13,13 @@ def min_path(x,y):
     elif x == 0 and y == 0:
         return content[0][0]
     elif x == 0:
-        return min_path(x, y-1) + content[x][y]
+        amorization[(x,y)] = min_path(x, y-1) + content[x][y]
+        return amorization[(x,y)]
     elif y == 0:
-        return min_path(x-1, y) + content[x][y]
+        amorization[(x,y)] = min_path(x-1, y) + content[x][y]
+        return amorization[(x,y)]
     else:
-        return min(min_path(x-1, y), min_path(x, y-1)) + content[x][y]
+        amorization[(x,y)] = min(min_path(x-1, y), min_path(x, y-1)) + content[x][y]
+        return amorization[(x,y)]
 
 print(min_path(79,79))
