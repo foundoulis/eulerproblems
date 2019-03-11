@@ -1,5 +1,7 @@
 from fractions import Fraction
 
+#too slow
+
 primes = [2]
 def gen_primes():
     yield 2
@@ -41,7 +43,8 @@ f = Fraction(15499, 94744)
 print(f"trying to get to: {float(f)}")
 current_lowest = Fraction(1,1)
 
-i = 223092870
+# i = 223092870
+i = 2
 while True:
     r = R(i)
     if r < current_lowest:
@@ -50,4 +53,4 @@ while True:
     if r < f:
         print(f"Found {i}")
         break
-    i += 223092870
+    i += 1
