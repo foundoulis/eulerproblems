@@ -1,4 +1,6 @@
 
+import math
+
 primes = {2: 3, 3: 5}
 def gen_primes():
     i = 2
@@ -55,9 +57,13 @@ def truncate_list(n):
     return [left_list, right_list]
 
 trunc_primes = []
-for p in gen_primes():
+for p in range(1000000):
+    if not is_prime(p):
+        continue
     if p < 10:
         continue
+    if p > 1000000:
+        break
     trunc_prime = True
     nums = truncate_list(p)
     for i in nums[0]:
@@ -72,7 +78,7 @@ for p in gen_primes():
     if trunc_prime:
         print(p)
         trunc_primes.append(p)
-        print(trunc_primes)
+        print(trunc_primes, sum(trunc_primes))
     if len(trunc_primes) == 11:
         print(trunc_primes)
         print(sum(trunc_primes))
